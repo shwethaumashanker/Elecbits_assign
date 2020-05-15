@@ -34,7 +34,6 @@
    }
    .search_icon {
     color: #C9CDCC;
-    position: absolute;
     margin-left: -10px;
     border: 0;
     outline: 0;
@@ -48,7 +47,7 @@
    .sidebar-sticky{
      color:#B5BEC3;
      background-color: #FFFFFF;
-     height:100vh;
+     height:150vh;
      width: 200px;
      display: inline-block;
      vertical-align:top;
@@ -58,21 +57,33 @@
    .side-items{
   float: left;
   display: block;
-  text-align: center;
+  text-align: left;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
   }
 
   .side-items:hover {
   background-color: #ddd;
   color: white;
 }
-}
 
+th, td, p, h3 {
+            font:15px 'Segoe UI';
+        }
+
+table, th, td {
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+            padding: 8px;
+            text-align: left;
+        }
+th {
+            font-weight:bold;
+        }
 </style>
 <body>
-
   <nav class="navbar fixed-top navbar-expand-lg" style="background-color: #7E57C2; height: 40px;" >
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
     <img src="logo.png" height="40px" alt="LOGO">
@@ -86,34 +97,140 @@
           <br>
             <ul class="nav flex-column">
               Navigation
-              <li class="side-items">
-                  <i class="fa fa-home"></i>
-                  Dashboard
-              </li>
-              <li class="side-items">
+              <li  data-toggle="collapse" data-target="#Dashboards" class="collapsed active side-items">
+                <i class="fa fa-home"></i>
+                Dashboard
+                </li>
+                <ul class="sub-menu collapse" id="Dashboards">
+                  <li class="side-items">Dashboard 1</li>
+                  <li class="side-items">Dashboard 2</li>
+                  <li class="side-items">Dashboard 3</li>
+                </ul>
+              <li class="nav-item side-items">
                   <i class="fas fa-fill-drip"></i>
                   UI Kit
               </li>
+              <li class="nav-item side-items">
+                  <i class="fa fa-lightbulb" aria-hidden="true"></i>
+                  Components
+              </li>
+              <li class="nav-item side-items">
+                <i class="fa fa-fire-extinguisher" aria-hidden="true"></i>
+                  Icons
+              </li>
+              <li class="nav-item side-items">
+                <i class="fa fa-edit"></i>
+                  Forms
+              </li>
             </ul>
           </div>
-<div style="display: inline-block;  padding: 16px;margin-top: 30px;">
+<div style="display: inline-block;  padding: 16px;margin-top: 30px; width:83%">
 
 <p>Dashboard</p>
-<p>Welcome to Ubold admin pannel!</p>
+<p style="font-size: 12px;">Welcome to Ubold admin pannel!</p>
+<div id="root"></div>
+<script src="script.js"></script>
+<div class="row">
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-  </div>
-</div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-3" style="display: flex;align-items:center;">
+                      <img src="dollar.png">
+                      <div>
+                      <div style="font-size:20px;" id="TotalRevenue"></div>
+                      <div style="font-size:10px;">Total Revenue</div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-3" style="display: flex;align-items:center;">
+                      <img src="cart.png">
+                      <div>
+                      <div style="font-size:20px;" id="TodaysSales"></div>
+                      <div style="font-size:10px;">Today's Sales</div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-3" style="display: flex;align-items:center;">
+                      <img src="bar.png">
+                      <div>
+                      <div style="font-size:20px;" id="conversion"></div>
+                      <div style="font-size:10px;">Conversion</div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-3" style="display: flex;align-items:center;">
+                      <img src="eye.png">
+                      <div>
+                      <div id="todaysVisits" style="font-size:20px;"></div>
+                      <div style="font-size:10px;">today's Visits</div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+
+          <div class="row">
+            <div class="col-xl-4 col-lg-5">
+              <div class="card mb-4">
+                <img style="height:250px;"src="circle.png">
+              </div>
+            </div>
+
+            <div class="col-xl-8 col-lg-7">
+              <div class="card mb-4">
+                <img style="height:250px;"src="graph.png">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xl-6 col-lg-7">
+              <div class="card mb-4">
+                <img style="height:250px;"src="barg.png">
+              </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-5">
+              <div class="card mb-4">
+                <img style="height:50px;"src="orders.png">
+                <div id="prod"></div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
 </div>
 
 
